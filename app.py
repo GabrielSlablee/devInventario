@@ -16,7 +16,7 @@ DB_PATH = os.path.abspath("inventario.db")
 ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "1234")  # defina se quiser
 LOGO_PATH = Path(__file__).parent / "fedex-seeklogo.png"
 
-st.set_page_config(page_title="Inventário por Serial - Cliente CIELO", page_icon="📦", layout="wide")
+st.set_page_config(page_title="Inventário por Serial - FedEx", page_icon="📦", layout="wide")
 
 # ====== CSS (tema visual + componentes) ======
 CUSTOM_CSS = """
@@ -120,7 +120,7 @@ def render_header():
         if logo_html:
             st.markdown(logo_html, unsafe_allow_html=True)
     with c2:
-        st.markdown('<p class="appbar-title">Inventário por Número de Série — CIELO</p>', unsafe_allow_html=True)
+        st.markdown('<p class="appbar-title">Inventário por Número de Série — FedEx</p>', unsafe_allow_html=True)
         st.markdown('<p class="appbar-sub">FedEx • Registro de leituras, divergências e exportações</p>', unsafe_allow_html=True)
     with c3:
         op = (st.session_state.get("operador") or "-").strip() or "-"
@@ -250,7 +250,7 @@ init_db()
 with st.sidebar:
     if LOGO_PATH.exists():
         st.image(str(LOGO_PATH), width=120)
-    st.markdown('<div class="sidebar-top">FedEx • Inventário CIELO</div>', unsafe_allow_html=True)
+    st.markdown('<div class="sidebar-top">FedEx • Inventário Clientes</div>', unsafe_allow_html=True)
 
     st.header("Sessão do usuário")
     operador = st.text_input("Operador (obrigatório)", value=st.session_state.get("operador", ""))
